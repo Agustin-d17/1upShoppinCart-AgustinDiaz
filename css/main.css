@@ -1,0 +1,217 @@
+.main-productos{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: default;
+}
+
+.main-productos .encabezados{
+    color: #334433;
+    height: 10%;
+}
+
+.main-productos .encabezados button{
+    background-color: #fff;
+    border: none;
+    color: #334433;
+}
+
+.main-productos .contenido {
+    display: flex;
+    height: 90%;
+}
+
+.main-productos .contenido .productos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: self-start;
+    grid-row-gap: 20px;
+    padding: 20px;
+}
+
+.main-productos .contenido .productos.noFull{
+    width: 70%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main-productos .contenido .productos.fetchError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-productos .contenido .productos .prod_card {
+    display: flex;
+    flex-direction: column;
+    width: 247px;
+    height: 415px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-productos .productos .prod_card .card_image--hover {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.main-productos .productos .prod_card .card_image--hover:hover {
+    opacity: 1; 
+}
+
+.main-productos .productos .prod_card .card_tittle {
+    margin-top: 8px;
+    font-size: 22px;
+}
+
+.main-productos .productos .prod_card .card_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+.main-productos .productos .prod_card .card_info h4 {
+    font-size: 18px;
+    margin-left: 8px;
+    margin-right: 8px; 
+}
+.main-productos .productos .prod_card .card_info .card_price {
+    color: #334433; 
+}
+.main-productos .productos .prod_card .card_info .sin_stock {
+    color: #909090;
+    text-decoration: line-through; 
+}
+.main-productos .productos .prod_card .card_button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    width: 100%;
+    margin: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.main-productos .productos .prod_card .card_button:hover {
+    background-color: #333;
+}
+
+
+.main-productos .contenido .carrito {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-height: 100vh;
+    padding: 0 20px 0 20px;
+    border-left: 1px solid gray; 
+}
+
+.main-productos .contenido .carrito.ocultar {
+    display: none;
+}
+
+.main-productos .carrito .carrito-card-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll; 
+}
+
+.main-productos .carrito article {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.main-productos .carrito article .carrito_img {
+        margin-right: 5px;
+        width: 100px; 
+}
+
+.main-productos .carrito article .datos_prod {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left: 10px; 
+}
+
+.main-productos .carrito article .datos_prod .title {
+    color: #334433;
+}
+
+.main-productos .carrito article .datos_prod div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #334433;
+    padding-right: 10px;
+}
+
+.carrito-flotante {
+    display: none;
+    text-align: center;
+    background-color: #334433;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: sticky;
+    bottom: 15px;
+    margin: 0 0 15px 15px;
+}
+
+.carrito-flotante span {
+    color: #fff
+}
+
+@media (max-width: 570px) {
+    .main-productos .encabezados div{
+        align-items: center;
+        align-items: center;
+    }
+
+    .main-productos .encabezados .div1 {
+        width: 100%;
+    }
+
+    .main-productos .encabezados .div2 {
+        display: none;
+    }
+
+    .main-productos .contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-productos .contenido .productos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .main-productos .contenido .carrito.ocultar {
+        display: flex;
+        width: 80%;
+        border: none; 
+    }
+
+    .main-productos .carrito .carrito-card-container{
+        overflow-y: visible;
+    }
+
+    .carrito-flotante {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+}

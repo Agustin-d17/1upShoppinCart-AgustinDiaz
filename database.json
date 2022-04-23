@@ -1,0 +1,42 @@
+[
+    {
+        "id": "001",
+        "nombre":"Venom",
+        "precio":9.99,
+        "stock":3,
+        "img1":"img/productos/venom.png",
+        "img2":"img/productos/venomH.png"
+    },
+    {
+        "id": "002",
+        "nombre":"Spiderman",
+        "precio":6.99,
+        "stock":17,
+        "img1":"img/productos/spiderman.png",
+        "img2":"img/productos/spidermanH.png"
+    },
+    {
+        "id": "003",
+        "nombre":"Scorpion",
+        "precio":9.99,
+        "stock":4,
+        "img1":"img/productos/scorpion.png",
+        "img2":"img/productos/scorpionH.png"
+},
+    {
+        "id": "004",
+        "nombre":"God of war",
+        "precio":7.99,
+        "stock":8,
+        "img1":"img/productos/gow.png",
+        "img2":"img/productos/gowH.png"
+},
+    {
+        "id": "005",
+        "nombre":"Nemesis",
+        "precio":9.99,
+        "stock":11,
+        "img1":"img/productos/nemesis.png",
+        "img2":"img/productos/nemesisH.png"
+}
+]
