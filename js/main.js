@@ -1,12 +1,14 @@
 //VARIABLES
 //Dom
-const carritoBtn = document.querySelector('#carritoBtn');
-const DOMproductos = document.querySelector("#prodSection");
-const DOMcarrito = document.querySelector("#carritoSection");
-const DOMcarritoItems = document.querySelector("#carritoItems");
-const vaciarBtn = document.querySelector("#vaciarBtn");
-const comprarBtn = document.querySelector("#comprarBtn");
-const DOMtotal = document.querySelector("#total")
+const carritoBtn = document.querySelector('#carritoBtn'); //Boton que oculta el carrito en modo desktop
+const DOMproductos = document.querySelector("#prodSection"); //Espacio del dom donde se renderizan los productos
+const DOMcarrito = document.querySelector("#carritoSection"); //Seccion del carrito de compras
+const DOMcarritoItems = document.querySelector("#carritoItems"); //Espacio del dom donde se renderizan los items agregados al carrito
+const vaciarBtn = document.querySelector("#vaciarBtn"); //Boton para vaciar el carrito de compras
+const comprarBtn = document.querySelector("#comprarBtn"); //Boton para comprar los items agregados al carrito
+const DOMtotal = document.querySelector("#total"); //Precio total de los items del carrito
+const DOMcontador = document.querySelector("#contador-dom"); //Espacio donde va el contador de items en el carrito
+const DIVcontador = document.querySelector("#contador"); //contador de items en el carrito
 //otras
 const prodDB = [];
 let carrito = [];
@@ -73,6 +75,7 @@ const btnEvento = () => {
 function agregarAlCarrito(evento){
     carrito.push(evento.target.getAttribute("marcador"));
     renderizarCarrito();
+    contadorItems();
 }
 
 //renderizar el carrito de compras
@@ -138,6 +141,7 @@ const vaciarCarrito = () => {
     .then((result) => {
         result.isConfirmed && (carrito = []);
         renderizarCarrito();
+        contadorItems();
     })
 }
 
@@ -145,26 +149,44 @@ vaciarBtn.addEventListener('click', vaciarCarrito)
 
 //boton comprar
 const comprar = async () => {
-    const { value: email } = await Swal.fire({
-        input: 'email',
-        inputLabel: 'Tu dirección de email',
-        inputPlaceholder: 'Ingrese su email',
-        confirmButtonColor: '#000'
-      })
-      
-      if (email) {
+    if(carrito != ""){
+        const { value: email } = await Swal.fire({
+            input: 'email',
+            inputLabel: 'Tu dirección de email',
+            inputPlaceholder: 'Ingrese su email',
+            confirmButtonColor: '#000'
+          })
+          
+          if (email) {
+            Swal.fire({
+                icon: 'success',
+                text: 'Gracias por su pedido! Recibira un email para finalizar su compra :D', 
+                confirmButtonColor: "#000"
+            })
+          }
+        
+          carrito  = [];
+          renderizarCarrito();
+          contadorItems();
+    }else{
         Swal.fire({
-            icon: 'success',
-            text: 'Gracias por su pedido! Recibira un email para finalizar su compra :D', 
+            icon: 'warning',
+            title: 'El carrito esta vacio!',
+            text: 'Primero agrega algunos elementos antes de seguir con la compra',
             confirmButtonColor: "#000"
         })
-      }
-    
-      carrito  = [];
-      renderizarCarrito();
+    }
 }
 
 comprarBtn.addEventListener('click', comprar)
+
+//agregar contador de items en el carrito en vista mobile
+const contadorItems = () => {
+    if(carrito.length != 0){
+        contador.classList.add('contador-activado')
+    }
+    DOMcontador.innerText = carrito.length.toString()
+}
 
 // //app 
 obtenerDatos('../database.json', {mode: 'no-cors'})

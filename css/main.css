@@ -154,10 +154,15 @@
     padding-right: 10px;
 }
 
+.flotante{
+    position: sticky;
+    bottom: 10px;
+}
+
 .carrito-flotante {
     display: none;
     text-align: center;
-    background-color: #334433;
+    background-color: #90ee90;
     border-radius: 50%;
     height: 50px;
     width: 50px;
@@ -169,6 +174,22 @@
 .carrito-flotante span {
     color: #fff
 }
+
+.contador-items {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 35px;
+    margin-left: 54px;
+}
+
+
 
 @media (max-width: 570px) {
     .main-productos .encabezados div{
@@ -203,6 +224,12 @@
         border: none; 
     }
 
+    .main-productos .contenido .carrito {
+        display: flex;
+        width: 80%;
+        border: none; 
+    }
+
     .main-productos .carrito .carrito-card-container{
         overflow-y: visible;
     }
@@ -213,5 +240,8 @@
         align-items: center;
     }
 
+    .contador-activado{
+        display:flex;
+    }
     
 }
